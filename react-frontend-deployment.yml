@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: react-frontend
-          image: ghcr.io/git-commit-therapy/react-frontend:sample
+          image: ghcr.io/git-commit-therapy/react-frontend:latest
           ports:
             - containerPort: 3000
       imagePullSecrets:
