@@ -1,0 +1,62 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: KeycloakRealmImport
+metadata:
+  # name: keycloak-authenticator-realm-sancommitto
+  name: keycloak-authenticator
+spec:
+  # keycloakCRName: keycloak-authenticator
+  keycloakCRName: keycloak-authenticator-realm-sancommitto
+  realm:
+    # id: example-realm
+    realm: sancommitto
+    displayName: SanCommitto
+    enabled: true
+    clients:
+      - clientId: auth-golang
+        name:
+        description:
+        rootUrl:
+        adminUrl:
+        baseUrl:
+        surrogateAuthRequired: false
+        enabled: true
+        alwaysDisplayInConsole: false
+        clientAuthenticatorType: client-secret
+        secret: ziopera
+        redirectUris:
+          - /*
+        webOrigins:
+          - /*
+        notBefore: 0
+        bearerOnly: false
+        consentRequired: false
+        standardFlowEnabled: true
+        implicitFlowEnabled: false
+        directAccessGrantsEnabled: true
+        serviceAccountsEnabled: false
+        publicClient: false
+        frontchannelLogout: true
+        protocol: openid-connect
+        attributes:
+          realm_client: "false"
+          oidc.ciba.grant.enabled: "false"
+          client.secret.creation.time: "1736864230"
+          backchannel.logout.session.required: "true"
+          oauth2.device.authorization.grant.enabled: "false"
+          backchannel.logout.revoke.offline.tokens: "false"
+        authenticationFlowBindingOverrides: {}
+        fullScopeAllowed: true
+        nodeReRegistrationTimeout: -1
+        defaultClientScopes:
+          - web-origins
+          - acr
+          - profile
+          - roles
+          - basic
+          - email
+        optionalClientScopes:
+          - address
+          - phone
+          - organization
+          - offline_access
+          - microprofile-jwt

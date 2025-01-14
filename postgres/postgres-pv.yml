@@ -8,8 +8,9 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi
+    storage: 4Gi
   accessModes:
     - ReadWriteMany
   hostPath:
     path: /data/postgresql
+  persistentVolumeReclaimPolicy: Retain

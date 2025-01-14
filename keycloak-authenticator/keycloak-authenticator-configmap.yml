@@ -1,16 +1,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: keycloak-authenticator-secret
+  name: keycloak-authenticator-configmap
   namespace: default
 data:
   KC_DB: postgres
   KC_DB_URL: jdbc:postgresql://postgres-service.default.svc.cluster.local:5432/postgres
   KC_DB_PORT: '5432'
-  KC_DB_USERNAME: postgres
-  KC_DB_PASSWORD: postgres
-  KC_BOOTSTRAP_ADMIN_USERNAME: admin
-  KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+  KC_DB_SCHEMA: keycloak
   KC_HOSTNAME: localhost
+  # KC_HOSTNAME: auth.sancommitto.local
   KC_HOSTNAME_PORT: '8443'
   KC_HTTP_ENABLED: 'true'

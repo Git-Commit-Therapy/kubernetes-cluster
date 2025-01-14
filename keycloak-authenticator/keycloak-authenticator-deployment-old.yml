@@ -24,8 +24,11 @@ spec:
             - containerPort: 8080
             - containerPort: 8443
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: keycloak-authenticator-secret
+            - configMapRef:
+                name: keycloak-authenticator-configmap
+          # imagePullPolicy: Never
       imagePullSecrets:
         - name: regcred
 

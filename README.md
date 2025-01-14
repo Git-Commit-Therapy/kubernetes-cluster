@@ -20,3 +20,22 @@ kubectl create secret generic regcred \
     --type=kubernetes.io/dockerconfigjson
 ```
 The commands above will create a secret named `regcred`, which is used by the deployments in this repo.
+
+## Secrets
+Change all secrets in the files inside the `/secrets` directory. Secrets have to be written in Base64 format.
+The following example secrets are set:
+- Postgres default username: `postgres`
+- Postgres default password: `postgres`
+- Keycloak admin username: `admin`
+- Keycloak admin password: `admin`
+
+## Deploying
+Deploy with just:
+```sh
+just deploy
+```
+
+Delete all deployments:
+```sh
+just delete
+```
