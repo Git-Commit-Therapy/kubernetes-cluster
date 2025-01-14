@@ -1,0 +1,25 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: Keycloak
+metadata:
+  name: keycloak-authenticator
+spec:
+  instances: 1
+  db:
+    vendor: postgres
+    host: postgres-service
+    database: postgres
+    schema: keycloak
+    usernameSecret:
+      name: keycloak-authenticator-secret
+      key: KC_DB_USERNAME
+    passwordSecret:
+      name: keycloak-authenticator-secret
+      key: KC_DB_PASSWORD
+  http:
+    tlsSecret: selfsigned-tls-secret
+  hostname:
+    # hostname: auth.sancommitto.local
+    hostname: localhost
+  ingress:
+    # className: openshift-default
+    enabled: false

@@ -1,11 +1,9 @@
 apiVersion: k8s.keycloak.org/v2alpha1
 kind: KeycloakRealmImport
 metadata:
-  # name: keycloak-authenticator-realm-sancommitto
-  name: keycloak-authenticator
+  name: keycloak-authenticator-realm-sancommitto
 spec:
-  # keycloakCRName: keycloak-authenticator
-  keycloakCRName: keycloak-authenticator-realm-sancommitto
+  keycloakCRName: keycloak-authenticator
   realm:
     # id: example-realm
     realm: sancommitto
@@ -22,6 +20,7 @@ spec:
         enabled: true
         alwaysDisplayInConsole: false
         clientAuthenticatorType: client-secret
+        # TODO cambiare
         secret: ziopera
         redirectUris:
           - /*

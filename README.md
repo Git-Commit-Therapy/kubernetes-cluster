@@ -28,11 +28,12 @@ The following example secrets are set:
 - Postgres default password: `postgres`
 - Keycloak admin username: `admin`
 - Keycloak admin password: `admin`
+- Self signed certificates and private key for keycloak HTTPS
 
 ## Deploying
 Deploy with just:
 ```sh
-just deploy
+just apply
 ```
 
 Delete all deployments:
