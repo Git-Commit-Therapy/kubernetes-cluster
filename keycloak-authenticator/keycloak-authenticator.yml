@@ -16,7 +16,11 @@ spec:
       name: keycloak-authenticator-secret
       key: KC_DB_PASSWORD
   http:
-    tlsSecret: selfsigned-tls-secret
+    tlsSecret: keycloak-authenticator-certificate-secret
+  truststores:
+    ca-trust-bundle:
+      secret:
+        name: ca-trust-bundle
   hostname:
     # hostname: auth.sancommitto.local
     hostname: localhost

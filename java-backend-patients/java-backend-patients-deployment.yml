@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-backend-patients-deployment
+  labels:
+    app: java-backend-patients
+
+spec:
+  selector:
+    matchLabels:
+      app: java-backend-patients
+  template:
+    metadata:
+      labels:
+        app: java-backend-patients
+    spec:
+      containers:
+        - name: java-backend-patients
+          image: ghcr.io/git-commit-therapy/java-backend-patients:latest
+          ports:
+            - containerPort: 8443
+      imagePullSecrets:
+        - name: regcred
+
