@@ -1,7 +1,7 @@
 apiVersion: trust.cert-manager.io/v1alpha1
 kind: Bundle
 metadata:
-  name: ca-trust-bundle  # The bundle name will also be used for the target
+  name: root-trust-bundle  # The bundle name will also be used for the target
 spec:
   sources:
   # Include a bundle of publicly trusted certificates which can be
@@ -11,13 +11,12 @@ spec:
 
   # A Secret in the "trust" namespace; see "Trust Namespace" below for further details
   - secret:
-      name: "ca-key-pair"
-      key: "ca.crt"
+      name: "root-key-pair-secret"
+      key: "tls.crt"
 
   target:
-    # Sync the bundle to a ConfigMap and a Secret, both called `ca-trust-bundle` in every namespace which
-    # has the label "linkerd.io/inject=enabled"
-    # All ConfigMaps will include a PEM-formatted bundle, here named "root-certs.pem"
+    # Sync the bundle to a ConfigMap and a Secret, both called `root-trust-bundle` in every namespace
+    # # All ConfigMaps will include a PEM-formatted bundle, here named "root-certs.pem"
     # and in this case we also request binary formatted bundles in JKS and PKCS#12 formats,
     # here named "bundle.jks" and "bundle.p12".
     configMap:
@@ -30,6 +29,8 @@ spec:
         key: "bundle.jks"
       pkcs12:
         key: "bundle.p12"
-      # namespaceSelector:
-      #   matchLabels:
+    namespaceSelector:
+      matchLabels:
+        kubernetes.io/metadata.name: "default"
       #     linkerd.io/inject: "enabled"
+      #

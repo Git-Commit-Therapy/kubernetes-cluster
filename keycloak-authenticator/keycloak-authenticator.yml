@@ -18,9 +18,9 @@ spec:
   http:
     tlsSecret: keycloak-authenticator-certificate-secret
   truststores:
-    ca-trust-bundle:
+    root-trust-bundle:
       secret:
-        name: ca-trust-bundle
+        name: root-trust-bundle
   hostname:
     # hostname: auth.sancommitto.local
     hostname: localhost
