@@ -1,10 +1,10 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak-authenticator-certificate
+  name: auth-golang-certificate
 spec:
   # Secret names are always required.
-  secretName: keycloak-authenticator-certificate-secret
+  secretName: auth-golang-certificate-secret
 
   privateKey:
     algorithm: RSA
@@ -32,7 +32,7 @@ spec:
 
   # At least one of commonName (possibly through literalSubject), dnsNames, uris, emailAddresses, ipAddresses or otherNames is required.
   dnsNames:
-    - keycloak-authenticator-service.default.svc.cluster.local
+    - auth-golang-service.default.svc.cluster.local
 
   # Issuer references are always required.
   issuerRef:

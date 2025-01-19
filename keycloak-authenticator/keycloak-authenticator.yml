@@ -15,6 +15,9 @@ spec:
     passwordSecret:
       name: keycloak-authenticator-secret
       key: KC_DB_PASSWORD
+  bootstrapAdmin:
+    user:
+      secret: keycloak-authenticator-secret
   http:
     tlsSecret: keycloak-authenticator-certificate-secret
   truststores:

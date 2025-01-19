@@ -2,12 +2,6 @@ apply: apply-custom-resource-definitions
     # kubectl create secret tls ca-key-pair --cert=.keys/ca.crt --key=.keys/ca.key
     kubectl apply --recursive --filename .
 
-# Deprecated
-create-ca:
-    # Create a new CA certificate
-    openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout .keys/ca.key -out .keys/ca.crt -subj "/C=IT/ST=Italy/L=Italy/CN=SanCommitto CA"
-    chmod 600 .keys/ca.key
-
 install-dependencies:
     helm repo add jetstack https://charts.jetstack.io --force-update
     helm install cert-manager jetstack/cert-manager \

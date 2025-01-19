@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-golang-deployment
+  labels:
+    app: auth-golang
+
+spec:
+  selector:
+    matchLabels:
+      app: auth-golang
+  template:
+    metadata:
+      labels:
+        app: auth-golang
+    spec:
+      containers:
+        - name: auth-golang
+          image: ghcr.io/git-commit-therapy/auth-golang:latest
+          ports:
+            - containerPort: 443
+          envFrom:
+            - configMapRef:
+                name: auth-golang-configmap
+            - secretRef:
+                name: auth-golang-secret
+          volumeMounts:
+            - mountPath: /certs
+              name: tls-certificate
+            - mountPath: /trust
+              name: trust-certificates
+      volumes:
+        - name: tls-certificate
+          secret:
+            secretName: auth-golang-certificate-secret
+        - name: trust-certificates
+          configMap:
+            name: root-trust-bundle
+          
+      imagePullSecrets:
+        - name: regcred
+
