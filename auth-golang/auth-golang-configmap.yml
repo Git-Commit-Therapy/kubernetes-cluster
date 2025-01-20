@@ -4,10 +4,7 @@ metadata:
   name: auth-golang-configmap
 data:
   KC_URL: https://keycloak-authenticator-service.default.svc.cluster.local:8443
-  # TODO: l'utente admin non esiste nel realm sancommitto ma si tenta di accedere lì
-  # prendere due realm come env: "master" per admin e "sancommitto" per l'app
-  KC_REALM: master
-  # KC_REALM: sancommitto
+  KC_REALM: sancommitto
   DB_URL: postgresql://postgres-service.default.svc.cluster.local/postgres
 
   TLS: "true"
