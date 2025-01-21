@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: envoy-proxy-deployment
+  labels:
+    app: envoy-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: envoy-proxy
+  template:
+    metadata:
+      labels:
+        app: envoy-proxy
+    spec:
+      containers:
+        - name: envoy-proxy
+          image: ghcr.io/git-commit-therapy/envoy-proxy:latest 
+          ports:
+            - containerPort: 8080
+              name: envoy-port
+      imagePullSecrets:
+        - name: regcred
