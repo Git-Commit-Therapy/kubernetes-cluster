@@ -20,5 +20,18 @@ spec:
           ports:
             - containerPort: 8080
               name: envoy-port
+          volumeMounts:
+            - mountPath: /etc/envoy/certs
+              name: tls-certificate
+            - mountPath: /etc/envoy/trust
+              name: trust-certificates
+          imagePullPolicy: Never
+      volumes:
+        - name: tls-certificate
+          secret:
+            secretName: envoy-proxy-certificate-secret
+        - name: trust-certificates
+          configMap:
+            name: root-trust-bundle
       imagePullSecrets:
         - name: regcred

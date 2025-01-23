@@ -19,6 +19,24 @@ spec:
           image: ghcr.io/git-commit-therapy/java-backend-patients:latest
           ports:
             - containerPort: 8443
+          envFrom:
+            - configMapRef:
+                name: java-backend-patients-configmap
+            - secretRef:
+                name: java-backend-patients-secret
+          volumeMounts:
+            - mountPath: /certs
+              name: tls-certificate
+            - mountPath: /trust
+              name: trust-certificates
+      volumes:
+        - name: tls-certificate
+          secret:
+            secretName: java-backend-patients-certificate-secret
+        - name: trust-certificates
+          configMap:
+            name: root-trust-bundle
+
       imagePullSecrets:
         - name: regcred
 
