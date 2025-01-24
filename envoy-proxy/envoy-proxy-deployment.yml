@@ -25,7 +25,7 @@ spec:
               name: tls-certificate
             - mountPath: /etc/envoy/trust
               name: trust-certificates
-          imagePullPolicy: Never
+          # args: ["-c", "/etc/envoy/envoy.yaml", "--log-level", "debug"]
       volumes:
         - name: tls-certificate
           secret:

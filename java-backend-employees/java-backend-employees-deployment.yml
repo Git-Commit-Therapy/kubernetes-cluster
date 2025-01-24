@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-backend-patients-deployment
+  name: java-backend-employees-deployment
   labels:
-    app: java-backend-patients
+    app: java-backend-employees
 
 spec:
   selector:
     matchLabels:
-      app: java-backend-patients
+      app: java-backend-employees
   template:
     metadata:
       labels:
-        app: java-backend-patients
+        app: java-backend-employees
     spec:
       containers:
-        - name: java-backend-patients
-          image: ghcr.io/git-commit-therapy/java-backend-patients:latest
+        - name: java-backend-employees
+          image: ghcr.io/git-commit-therapy/java-backend-employees:latest
           ports:
             - containerPort: 443
           envFrom:
             - configMapRef:
-                name: java-backend-patients-configmap
+                name: java-backend-employees-configmap
             - secretRef:
-                name: java-backend-patients-secret
+                name: java-backend-employees-secret
           volumeMounts:
             - mountPath: /certs
               name: tls-certificate
@@ -32,7 +32,7 @@ spec:
       volumes:
         - name: tls-certificate
           secret:
-            secretName: java-backend-patients-certificate-secret
+            secretName: java-backend-employees-certificate-secret
         - name: trust-certificates
           configMap:
             name: root-trust-bundle
