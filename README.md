@@ -23,7 +23,7 @@ The commands above will create a secret named `regcred`, which is used by the de
 
 ## Credentials
 
-Change all credentials in values.yaml for Postgres and Keycloak.
+Change all credentials in `values.yaml` for Postgres and Keycloak.
 
 ## Deploying
 The app is deployed through Helm and Helmfile. Install both of them.
@@ -32,7 +32,7 @@ On Arch Linux:
 ```sh
 sudo pacman -S helm helmfile
 ```
-Then initialize helmfile:
+Then initialize Helmfile:
 ```sh
 helmfile init
 ```
