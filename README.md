@@ -21,22 +21,34 @@ kubectl create secret generic regcred \
 ```
 The commands above will create a secret named `regcred`, which is used by the deployments in this repo.
 
-## Secrets
-Change all secrets in the files inside the `/secrets` directory. Secrets have to be written in Base64 format.
-The following example secrets are set:
-- Postgres default username: `postgres`
-- Postgres default password: `postgres`
-- Keycloak admin username: `admin`
-- Keycloak admin password: `admin`
-- Self signed certificates and private key for keycloak HTTPS
+## Credentials
+
+Change all credentials in values.yaml for Postgres and Keycloak.
 
 ## Deploying
-Deploy with just:
+The app is deployed through Helm and Helmfile. Install both of them.
+
+On Arch Linux:
 ```sh
-just apply
+sudo pacman -S helm helmfile
+```
+Then initialize helmfile:
+```sh
+helmfile init
 ```
 
-Delete all deployments:
+Finally, deploy the app:
 ```sh
-just delete
+helmfile apply
+```
+
+## Updating
+Once deployed, if the cluster is modified, it can be updated the deployment using the following command:
+```sh
+helmfile sync
+```
+
+## Deleting
+```sh
+helmfile destroy
 ```
