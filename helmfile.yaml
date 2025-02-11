@@ -1,0 +1,35 @@
+repositories:
+  - name: jetstack
+    url: https://charts.jetstack.io
+  - name: keycloak-operator
+    url: https://kbumsik.io/keycloak-kubernetes/
+    
+
+releases:
+  - name: sancommitto
+    chart: ./
+    namespace: default
+    needs:
+      - cert-manager/cert-manager
+      - cert-manager/trust-manager
+    values:
+      - ./values.yaml
+
+  - name: cert-manager
+    chart: jetstack/cert-manager
+    namespace: cert-manager
+    set:
+      - name: crds.enabled
+        value: true
+
+  - name: trust-manager
+    chart: jetstack/trust-manager
+    namespace: cert-manager
+    set:
+      - name: secretTargets.enabled
+        value: true
+        # This is can be dangerous, but it took me two days, without it it doesn't work
+      - name: secretTargets.authorizedSecretsAll
+        value: true
+
+
