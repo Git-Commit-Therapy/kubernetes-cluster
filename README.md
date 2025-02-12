@@ -49,6 +49,24 @@ helmfile sync
 ```
 
 ## Deleting
+The cluster can be deleted with the following command:
 ```sh
 helmfile destroy
 ```
+
+However, cert-manager and trust-manager leave behind some CRDs. To delete them:
+
+```sh
+# Clean CRS left by cert-manager
+kubectl delete crd \
+  issuers.cert-manager.io \
+  clusterissuers.cert-manager.io \
+  certificates.cert-manager.io \
+  certificaterequests.cert-manager.io \
+  orders.acme.cert-manager.io \
+  challenges.acme.cert-manager.io
+
+# Clean CRS left by trust-manager
+kubectl delete crd bundles.trust.cert-manager.io
+```
+

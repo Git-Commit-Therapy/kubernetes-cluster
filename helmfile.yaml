@@ -35,6 +35,8 @@ releases:
     set:
       - name: secretTargets.enabled
         value: true
+        # The option --set secretTargets.enabled=true is required to write the trust bundle to a secret
+        # Vaffanculo Keycloak che non supporta le ConfigMap per i trust bundles
         # This is can be dangerous, but it took me two days, without it it doesn't work
       - name: secretTargets.authorizedSecretsAll
         value: true
