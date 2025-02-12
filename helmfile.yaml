@@ -18,6 +18,8 @@ releases:
   - name: cert-manager
     chart: jetstack/cert-manager
     namespace: cert-manager
+    # Without waiting, sancommitto exceeds context deadline
+    wait: true
     set:
       - name: crds.enabled
         value: true
@@ -25,6 +27,11 @@ releases:
   - name: trust-manager
     chart: jetstack/trust-manager
     namespace: cert-manager
+    needs:
+      # trust-manager needs the CRDs in cert-manager
+      - cert-manager/cert-manager
+    # Without waiting, sancommitto exceeds context deadline
+    wait: true
     set:
       - name: secretTargets.enabled
         value: true

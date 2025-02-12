@@ -39,7 +39,7 @@ helmfile init
 
 Finally, deploy the app:
 ```sh
-helmfile apply
+helmfile sync
 ```
 
 ## Updating
