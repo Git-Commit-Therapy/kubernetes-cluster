@@ -43,7 +43,7 @@ helmfile apply
 ```
 
 ## Updating
-Once deployed, if the cluster is modified, it can be updated the deployment using the following command:
+Once deployed, if the cluster is modified, it can be updated using the following command:
 ```sh
 helmfile sync
 ```
