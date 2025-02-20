@@ -3,7 +3,9 @@ repositories:
     url: https://charts.jetstack.io
   - name: keycloak-operator
     url: https://kbumsik.io/keycloak-kubernetes/
-    
+  - name: kubernetes-dashboard 
+    url: https://kubernetes.github.io/dashboard/
+
 
 releases:
   - name: sancommitto
@@ -41,4 +43,6 @@ releases:
       - name: secretTargets.authorizedSecretsAll
         value: true
 
-
+  - name: kubernetes-dashboard 
+    chart: kubernetes-dashboard/kubernetes-dashboard 
+    namespace: kubernetes-dashboard

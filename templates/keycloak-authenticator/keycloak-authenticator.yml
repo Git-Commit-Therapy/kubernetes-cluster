@@ -25,8 +25,8 @@ spec:
       secret:
         name: root-trust-bundle
   hostname:
-    # hostname: auth.sancommitto.local
-    hostname: localhost
+    hostname: auth.sancommitto.local
+    # hostname: localhost
   ingress:
     # className: openshift-default
     enabled: false
