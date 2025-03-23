@@ -15,8 +15,8 @@ keycloak_authenticator:
   username: admin
   password: admin
   public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp1t+umAQ+828Y64Xw3iscAS/saOarJR4N772uhxGQGYuyzCMuFiHgye7pqnu0GETeriWzoPbUFXQpvyEATMCw/Dvi+EH4AbWcPVO6Isc8dPsWtLDuC6PZhLVRp3gpKyHKAQWEZxAuww+U/+GjE0mUidJIEKWJ3pELChhMcTld72dfAlOuySp2xNZwm4tpCF3UO6IjWecs5l3niIRMXOgaeI2IjKgA2SrAvbqrk51V7HDdh8WXSTpECIGqE+0uKfBok5oGI6UR7Np1/MUoHvFnzj8oflsoALOO2JdK+IeoB+9AHRez1TkZt7qdgrQg/LB7bAwQMyfnFuZL0IpgLNFjQIDAQAB
-vue-frontend:
-  auth_url:  http://auth.sancommitto.local
+vue_frontend:
+  auth_url: http://auth.sancommitto.local
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
   # Specifies whether a service account should be created

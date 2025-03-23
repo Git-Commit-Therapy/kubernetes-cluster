@@ -42,7 +42,3 @@ releases:
         # This is can be dangerous, but it took me two days, without it it doesn't work
       - name: secretTargets.authorizedSecretsAll
         value: true
-
-  - name: kubernetes-dashboard
-    chart: kubernetes-dashboard/kubernetes-dashboard
-    namespace: kubernetes-dashboard
