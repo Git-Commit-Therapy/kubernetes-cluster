@@ -10,7 +10,12 @@ spec:
     displayName: SanCommitto
     enabled: true
     clients:
-      - clientId: auth-golang
+      # emergency_ward
+      - clientId: {{ .Values.keycloak_authenticator.clients.emergency_ward.client_id }}
+        secret: {{ .Values.keycloak_authenticator.clients.emergency_ward.client_secret }}
+      # auth_golang
+      - clientId: {{ .Values.keycloak_authenticator.clients.auth_golang.client_id }}
+        secret: {{ .Values.keycloak_authenticator.clients.auth_golang.client_secret }}
         name:
         description:
         rootUrl:
@@ -21,7 +26,6 @@ spec:
         alwaysDisplayInConsole: false
         clientAuthenticatorType: client-secret
         # TODO cambiare
-        secret: ziopera
         redirectUris:
           - /*
         webOrigins:

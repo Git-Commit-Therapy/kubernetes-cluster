@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: vue-frontend-configmap
 data:
-  AUTH_URL: {{ .Values.vue_frontend.auth_url }}
+  NUXT_AUTH_URL: {{ .Values.vue_frontend.auth_url }}

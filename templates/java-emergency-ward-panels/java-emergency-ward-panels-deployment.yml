@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-emergency-ward-panels-deployment
+  labels:
+    app: java-emergency-ward-panels
+
+spec:
+  selector:
+    matchLabels:
+      app: java-emergency-ward-panels
+  template:
+    metadata:
+      labels:
+        app: java-emergency-ward-panels
+    spec:
+      containers:
+        - name: java-emergency-ward-panels
+          image: ghcr.io/git-commit-therapy/java-emergency-ward-panels:latest
+          ports:
+            - containerPort: 443
+          envFrom:
+            - configMapRef:
+                name: java-emergency-ward-panels-configmap
+            - secretRef:
+                name: java-emergency-ward-panels-secret
+          volumeMounts:
+            - mountPath: /certs
+              name: tls-certificate
+            - mountPath: /trust
+              name: trust-certificates
+          # command: ["/bin/sh", "-c", "until false; do echo 'Loop'; done"]
+      volumes:
+        - name: tls-certificate
+          secret:
+            secretName: java-emergency-ward-panels-certificate-secret
+        - name: trust-certificates
+          configMap:
+            name: root-trust-bundle
+
+      imagePullSecrets:
+        - name: regcred
+
