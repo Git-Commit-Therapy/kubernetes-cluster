@@ -25,7 +25,8 @@ spec:
       secret:
         name: root-trust-bundle
   hostname:
-    hostname: auth.sancommitto.local
+    hostname: keycloak-authenticator-service.default.svc.cluster.local
+    strict: false
     # hostname: localhost
   ingress:
     # className: openshift-default

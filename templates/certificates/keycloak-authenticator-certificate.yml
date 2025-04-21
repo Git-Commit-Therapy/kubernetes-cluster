@@ -33,6 +33,7 @@ spec:
   # At least one of commonName (possibly through literalSubject), dnsNames, uris, emailAddresses, ipAddresses or otherNames is required.
   dnsNames:
     - keycloak-authenticator-service.default.svc.cluster.local
+    - localhost
 
   # Issuer references are always required.
   issuerRef:
