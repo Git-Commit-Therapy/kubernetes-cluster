@@ -4,9 +4,11 @@ metadata:
   name: java-backend-patients-configmap
 data:
   DB_URL: jdbc:postgresql://postgres-service.default.svc.cluster.local/postgres
+  DB_USERNAME: postgres
+  DB_PASSWORD: postgres
   GRPC_PORT: "443"
   GRPC_HTTPS: "true"
-  GRPC_HTTPS_CERTIFICATE: /certs/tls.crt
-  GRPC_HTTPS_PRIVATE_KEY: /certs/tls.key
-  GRPC_HTTPS_TRUSTED_CERTIFICATE_COLLECTION: /trust/root-certs.pem
+  GRPC_HTTPS_CERTIFICATE: file:/certs/tls.crt
+  GRPC_HTTPS_PRIVATE_KEY: file:/certs/tls.key
+  GRPC_HTTPS_TRUSTED_CERTIFICATE_COLLECTION: file:/trust/root-certs.pem
 
