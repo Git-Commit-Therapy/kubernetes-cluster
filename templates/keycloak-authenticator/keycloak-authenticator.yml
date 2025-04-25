@@ -25,9 +25,9 @@ spec:
       secret:
         name: root-trust-bundle
   hostname:
-    hostname: keycloak-authenticator-service.default.svc.cluster.local
-    strict: false
+    # hostname: keycloak-authenticator-service.default.svc.cluster.local
     # hostname: localhost
+    strict: false
   ingress:
     # className: openshift-default
     enabled: false

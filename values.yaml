@@ -15,7 +15,7 @@ keycloak_authenticator:
       client_id: auth-golang
       client_secret: ziopera
     emergency_ward:
-      client_id: emergency_ward
+      client_id: emergency-ward
       client_secret: ziopera
   username: admin
   password: admin
