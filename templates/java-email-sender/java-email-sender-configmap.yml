@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: java-email-sender-configmap
+data:
+  SMTP_HOST: {{ .Values.email_sender.smtp_host }}
+  SMTP_PORT: "{{ .Values.email_sender.smtp_port }}"
+  SERVER_PORT: "{{ .Values.email_sender.server_port }}"

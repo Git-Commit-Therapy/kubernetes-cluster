@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-email-sender-deployment
+  labels:
+    app: java-email-sender
+
+spec:
+  selector:
+    matchLabels:
+      app: java-email-sender
+  template:
+    metadata:
+      labels:
+        app: java-email-sender
+    spec:
+      containers:
+        - name: java-email-sender
+          image: ghcr.io/git-commit-therapy/java-email-sender:latest
+          envFrom:
+            - configMapRef:
+                name: java-email-sender-configmap
+            - secretRef:
+                name: java-email-sender-secret
+
+      imagePullSecrets:
+        - name: regcred
+
