@@ -113,3 +113,26 @@ spec:
           - organization
           - offline_access
           - microprofile-jwt
+
+    groups:
+      - id: c9f3f9b0-105f-4c08-93cf-4f87e14fe2d9
+        name: doctors
+        path: /doctors
+        subGroups: []
+        attributes: {}
+        realmRoles: []
+        clientRoles: {}
+      - id: 1f258e2f-c44a-4897-b263-ed8f9333e401
+        name: patients
+        path: /patients
+        subGroups: []
+        attributes: {}
+        realmRoles: []
+        clientRoles: {}
+      - id: 8a29481e-757b-4927-a3cb-e9249c530937
+        name: staff
+        path: /staff
+        subGroups: []
+        attributes: {}
+        realmRoles: []
+        clientRoles: {}
