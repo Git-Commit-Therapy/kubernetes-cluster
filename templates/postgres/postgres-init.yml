@@ -24,7 +24,7 @@ data:
     );
 
     CREATE INDEX IF NOT EXISTS idx_users_id ON users(id);
-    CREATE INDEX IF NOT EXISTS idx_users_sub ON users(sid);
+    CREATE INDEX IF NOT EXISTS idx_users_sub ON users(sub);
 
     CREATE TABLE IF NOT EXISTS staff (
         staff_id CHAR(16) REFERENCES users(id) PRIMARY KEY
