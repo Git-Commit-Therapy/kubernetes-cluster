@@ -3,3 +3,4 @@ kind: ConfigMap
 metadata:
   name: vue-frontend-emergency-ward-panels-configmap
 data:
+  NUXT_PUBLIC_BACKEND_URL: {{ .Values.external_urls.backend_emergency_ward_panels }}

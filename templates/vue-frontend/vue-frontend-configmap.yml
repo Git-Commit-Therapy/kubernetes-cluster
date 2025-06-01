@@ -3,4 +3,6 @@ kind: ConfigMap
 metadata:
   name: vue-frontend-configmap
 data:
-  NUXT_AUTH_URL: {{ .Values.vue_frontend.auth_url }}
+  NUXT_PUBLIC_AUTH_URL: {{ .Values.external_urls.auth_url }}
+  NUXT_PUBLIC_PATIENTS_URL: {{ .Values.external_urls.patients_url }}
+  NUXT_PUBLIC_EMPLOYEES_URL: {{ .Values.external_urls.employees_url }}
