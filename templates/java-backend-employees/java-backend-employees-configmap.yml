@@ -13,3 +13,5 @@ data:
   GRPC_HTTPS_TRUSTED_CERTIFICATE_COLLECTION: file:/trust/root-certs.pem
   SENDER_MAIL: therapyHospital@gmail.com
   MAIL_SERVER_URL: http://java-email-sender.default.svc.cluster.local
+  EMERGENCY_CLEAN_OLD_CALL: "30"
+  EMERGENCY_MAX_OLD_CALL: "3600"
