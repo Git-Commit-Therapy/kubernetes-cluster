@@ -6,11 +6,11 @@ data:
   BACKEND_HOST: java-backend-employees-service.default.svc.cluster.local
   BACKEND_PORT: "443"
   BACKEND_HTTPS: "true"
-  KC_URL: https://keycloak-authenticator-service.default.svc.cluster.local
+  KC_URL: https://keycloak-authenticator-service.default.svc.cluster.local:8443
   KC_REALM: sancommitto
 
-  WS_PORT: "443"
-  WS_HTTPS: "true"
-  WS_HTTPS_CERTIFICATE: /certs/tls.crt
-  WS_HTTPS_PRIVATE_KEY: /certs/tls.key
-  WS_HTTPS_TRUSTED_CERTIFICATE_COLLECTION: /trust/root-certs.pem
+  WS_PORT: "10000"
+  WS_HTTPS: "false"
+  WS_HTTPS_CERTIFICATE: file:/certs/tls.crt
+  WS_HTTPS_PRIVATE_KEY: file:/certs/tls.key
+  WS_HTTPS_TRUSTED_CERTIFICATE_COLLECTION: file:/trust/root-certs.pem

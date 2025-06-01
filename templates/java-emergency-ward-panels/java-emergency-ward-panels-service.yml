@@ -7,6 +7,6 @@ spec:
     app: java-emergency-ward-panels
   ports:
     - protocol: TCP
-      port: 443
-      targetPort: 443
+      port: 80
+      targetPort: 10000
 
